@@ -1,0 +1,18 @@
+<html>
+    <script>
+        async function subscribe() {
+            let res = await fetch('http://localhost:8080/').then((val) => { console.log(val) })
+            wait(10000)
+            subscribe()
+        }
+
+        async function wait(ms) {
+            try {
+                return await new Promise((resolve) => {
+                    setTimeout(resolve, ms);
+                });
+            } catch { }
+        }
+        subscribe()
+    </script>
+</html>

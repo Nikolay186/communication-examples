@@ -1,0 +1,14 @@
+<html>
+    <script>
+        const sse = new EventSource("http://localhost:3000/sse")
+        sse.onopen = function() {
+            console.log('connected')
+        }
+        sse.onmessage = function(msg) {
+            console.log(msg)
+        }
+        sse.onerror = function(err) {
+            console.log(err)
+        }
+    </script>
+</html>

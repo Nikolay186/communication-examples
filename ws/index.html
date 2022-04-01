@@ -1,0 +1,18 @@
+<html>
+    <script>
+        let ws = new WebSocket('ws://localhost:3000/ws')
+        ws.onopen = function() {
+            console.log('connected to server on ' + ws.url)
+        }
+        ws.onmessage = function(msg) {
+            console.log('got a message from websocket on' + ws.url + '\ncontent:\n' + msg)
+        }
+        ws.onerror = function(err) {
+            console.log(err)
+        }
+
+        function send(msg) {
+            ws.send(msg)
+        }
+    </script>
+</html>
